@@ -1,0 +1,98 @@
+{#% extends 'base.html' %#}
+{% include "partial/header.html" %}
+{% block content %}
+<style>
+  .about {
+    margin-top: 40px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #004aad;
+  }
+
+  .about p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .features {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap; /* For responsive */
+  }
+
+  .feature {
+    background: #ffffff;
+    flex: 1 1 30%; /* Each box takes 30% width */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 250px; /* ensures minimum width on small screens */
+  }
+
+  .feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .feature h3 {
+    color: #004aad;
+    margin-bottom: 10px;
+    font-size: 1.7rem;
+  }
+
+  .feature p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .features {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .feature {
+      width: 100%;
+    }
+  }
+</style>
+
+<section class="about">
+  <h2>About Us</h2>
+  <p>At DriveNow Car Rentals, we are passionate about helping you hit the road with comfort, safety, and style.<br> Since 2010, we've been providing top-quality vehicles for all types of travelers — whether you're here for business, adventure, or a family trip.</p>
+
+  <div class="features">
+    <div class="feature">
+      <h3>Wide Range of Vehicles</h3>
+      <p>Choose from economy cars, luxury sedans, SUVs, and vans — all well-maintained and ready to go.</p>
+    </div>
+
+    <div class="feature">
+      <h3>Affordable Prices</h3>
+      <p>We believe renting a car should be easy and affordable without compromising quality and safety.</p>
+    </div>
+
+    <div class="feature">
+      <h3>Exceptional Service</h3>
+      <p>Our friendly team is here 24/7 to assist you with bookings, upgrades, and any support you need.</p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+{% include "partial/footer.html" %}

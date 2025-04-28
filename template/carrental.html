@@ -1,0 +1,121 @@
+{#% extends 'base.html' %#}
+
+{% include "partial/header.html" %}
+{% block content %}
+
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 40px;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    animation: fadeInGrid 0.8s ease-in;
+  }
+
+  @keyframes fadeInGrid {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+    color: #1e1e2f;
+    margin-bottom: 10px;
+  }
+
+  .card-text {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+
+  .card-btn {
+    display: inline-block;
+    padding: 10px 16px;
+    background-color: #ffb400;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+
+  .card-btn:hover {
+    background-color: #e0a000;
+  }
+
+  @media (max-width: 900px) {
+    .card-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<h1>Book Now !! Cars !!</h1>
+
+<div class="card-grid">
+  {% for car in cars %}
+    <a href="{% url 'car' car.id %}" class="card">
+      <img src="{{ car.image }}" alt="{{ car.name }}">
+      <div class="card-content">
+        <h2 class="card-title">{{ car.name }}</h2>
+        <p class="card-text">Make: {{ car.make }}</p>
+        <p class="card-text">Model: {{ car.model }}</p>
+        <p class="card-text">⭐ {{ car.rating }} ({{ car.reviewCount }} reviews)</p>
+        <span class="card-btn">Rent Now</span>
+      </div>
+    </a>
+  {% endfor %}
+</div>
+
+{% endblock %}
+
+{% include "partial/footer.html" %}

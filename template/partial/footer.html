@@ -1,0 +1,110 @@
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #ffffff, #f2f3f8);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      animation: bodyFade 1s ease-in;
+    }
+
+    @keyframes bodyFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Footer */
+    .new-footer {
+      background: #14213d;
+      color: #ccc;
+      padding: 50px 30px 20px;
+      margin-top: 50px;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-section h3, .footer-section h4 {
+      color: #fca311;
+      margin-bottom: 15px;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-section ul li a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    .footer-section ul li a:hover {
+      color: #fca311;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      border-top: 1px solid #333;
+      padding-top: 15px;
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .footer-top {
+        flex-direction: column;
+      }
+    }
+</style>
+<!-- Footer -->
+<footer class="new-footer">
+    <div class="footer-top">
+      <div class="footer-section">
+        <h3>DriveNow</h3>
+        <p>Experience hassle-free car rentals with our premium fleet and top-rated service.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/rental/">Home</a></li>
+          <li><a href="/about_page/">About</a></li>
+          <li><a href="/cont_page">Contact</a></li>
+          <li><a href="/login_page/">Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <p>Email: support@drivenow.com</p>
+        <p>Phone: +1 800 123 4567</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 DriveNow. All rights reserved.</p>
+    </div>
+  </footer>
+
+

@@ -1,0 +1,105 @@
+{#% extends 'base.html' %#}
+{% include "partial/header.html" %}
+{% block content %}
+<style>
+  .register {
+    margin-top: 40px;
+    text-align: center; /* Ensures heading is centered */
+  }
+
+  .register h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #004aad;
+  }
+
+  .register-form-container {
+    display: flex;
+    justify-content: center; /* Centers the form horizontally */
+  }
+
+  .register-form {
+    max-width: 500px;
+    width: 100%; /* Ensures form is responsive */
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .register-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  .register-form button {
+    background-color: #004aad;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .register-form button:hover {
+    background-color: #00317b;
+  }
+
+  .register-form .extra-links {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .register-form .extra-links a {
+    color: #004aad;
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+
+  .register-form .extra-links a:hover {
+    text-decoration: underline;
+  }
+
+  /* Animation for Registration Form */
+  .register-form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    animation: fadeInForm 1s ease-in-out;
+  }
+
+  @keyframes fadeInForm {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<section class="register">
+  <h2>Create an Account</h2>
+
+  <div class="register-form-container">
+    <form class="register-form" method="POST" action="/register/">
+      {% csrf_token %}
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+      <button type="submit">Register</button>
+
+      <div class="extra-links">
+        <p><a href="/login_page/">Already have an account? Login</a></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+{% endblock %}
+{% include "partial/footer.html" %}

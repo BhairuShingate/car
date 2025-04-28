@@ -1,0 +1,77 @@
+{#% extends 'base.html' %#}
+{% include "partial/header.html" %}
+
+{% block content %}
+<style>
+  .contact {
+    margin-top: 40px;
+    padding: 0 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #004aad;
+  }
+
+  .contact p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .contact-form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    resize: vertical; /* Allow textarea to be resized vertically */
+  }
+
+  .contact-form button {
+    background-color: #004aad;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .contact-form button:hover {
+    background-color: #00317b;
+  }
+</style>
+
+<section class="contact">
+  <h2>Contact Us</h2>
+  <p>If you have any questions or need assistance, feel free to reach out to us using the form below.</p>
+
+  <form class="contact-form" method="POST" action="/send-message/">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <input type="text" name="subject" placeholder="Subject" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+{% endblock %}
+{% include "partial/footer.html" %}

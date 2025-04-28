@@ -35,7 +35,8 @@
     .card img {
       width: 100%;
       height: 250px;
-      object-fit: cover;
+      {% comment %} object-fit: cover; {% endcomment %}
+      text-align:cover;
     }
   
     .card-content {
@@ -70,7 +71,6 @@
       margin-bottom: 6px;
     }
 </style>
-
 <div class="grid-container">
     <div class="card">
         <img src="{{ car.image }}" alt="{{ car.name }}">
